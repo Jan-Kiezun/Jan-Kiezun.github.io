@@ -1,6 +1,6 @@
 ﻿function WelcomeButtons() {
   const buttonStyle =
-    "bg-blue-500 hover:bg-blue-700 text-white font-semi  py-1 px-4 rounded text-3xl font-monospace transition duration-200 ease-in-out";
+    "bg-yellow-600 hover:bg-amber-600/90 text-white font-semi py-1 px-4 rounded text-3xl font-monospace transition duration-200 ease-in-out";
   return (
     <div className="flex flex-row justify-around gap-2">
       <button className={buttonStyle}>GitHub</button>
