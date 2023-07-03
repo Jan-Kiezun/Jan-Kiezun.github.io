@@ -1,5 +1,6 @@
 import StartView from "./components/landingPage/startView/StartView";
 import StartAbout from "./components/landingPage/about/StartAbout";
+import StartProjects from "./components/landingPage/projects/StartProjects";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
     <div className="flex flex-col">
       <StartView />
       <StartAbout />
+      <StartProjects />
       {scrollY === 0 ? (
         <div className="absolute bottom-0 left-0 right-0 flex justify-center items-center">
           <div className="animate-bounce">
