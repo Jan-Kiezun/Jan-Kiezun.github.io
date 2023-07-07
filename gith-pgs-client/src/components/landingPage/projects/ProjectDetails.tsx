@@ -1,6 +1,4 @@
-﻿import React from "react";
-
-interface ProjectDetailsProps {
+﻿interface ProjectDetailsProps {
   selectedProject: {
     title: string;
     description: string;
