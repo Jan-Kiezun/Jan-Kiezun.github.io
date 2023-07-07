@@ -1,6 +1,6 @@
 ﻿function StartAbout() {
   return (
-    <div className="min-h-screen w-screen flex justify-center items-center bg-yellow-500 px-8">
+    <div className="min-h-screen w-screen flex justify-center items-center bg-amber-300 px-8">
       <div className="min-h-[calc(100vh-50px)] w-1/2 flex justify-center">
         <h1 className="text-4xl font-bold text-center mt-20">About me</h1>
       </div>

@@ -8,13 +8,13 @@ function StartProjects() {
     {
       title: "Chess",
       description:
-        "A chess game made with React and Typescript, with an AI that uses the minimax algorithm with alpha-beta pruning.",
+        "A chess game made with React and Typescript. Play against an AI that uses the minimax algorithm with alpha-beta pruning.",
       link: "google.com",
     },
     {
       title: "Twitter Clone",
       description:
-        "A twitter clone made with React and Typescript, with a Node.js backend and a MongoDB database.",
+        "A twitter clone made with React and Typescript, with a Node.js backend written in express and a MongoDB database.",
       link: "google.com",
     },
     {
