@@ -8,25 +8,36 @@
 - Repo: git@github.com:Jan-Kiezun/Jan-Kiezun.github.io.git
 - Source in: `gith-pgs-client/` subdirectory
 
-## Commands
-- `git publish-blog <message>` — stage all, commit, push, deploy
+## Commands (use in order)
+- `npm install` — always needed first (node_modules is ephemeral)
+- `npm run build` — builds dist/
+- `bash ../deploy.sh` — builds + deploys to gh-pages (preferred)
 - `npm run dev` — local dev server
-- `npm run build` — build only
-- `bash ../deploy.sh` — manual deploy (fallback)
+
+## DO NOT USE
+- `git publish-blog` — broken alias (wrong path, commits unintended files)
+- `npx astro` — pulls Astro 6 which is incompatible
 
 ## Structure
 - `src/content/blog/` — add a `.md` file for a new post
 - `src/pages/index.astro` — homepage (intro + posts listing)
 - `src/pages/blog/[...slug].astro` — dynamic blog post route
-- `src/layouts/BlogLayout.astro` — base layout
+- `src/layouts/BlogLayout.astro` — base layout (nav, footer, SEO head)
 - `src/styles/global.css` — all styles
+- `public/` — static assets served at root (e.g. `/blog-logo.png`)
+
+## Layout details
+- Nav in layout: "Jan Kiezun" on left, logo image (48x48) on right, flexbox with space-between
+- Favicon points to `/blog-logo.png`
+- Tab title logic: `title === "Home"` → "Jan Kiezun Blog", otherwise `"{title} — Jan Kiezun"`
 
 ## Author
 - Jan Kieżun · Data Engineer · Poland
 - Chips: Python, SQL, PySpark, Airflow, Data Engineering, ML, Signal Processing, GCP
-- Links: GitHub, LinkedIn (in intro section)
+- Links: GitHub, LinkedIn (in intro section on index.astro)
 
-## Alias
-- Registered globally: `git config --global alias.publish-blog`
-- Defined in `~/.gitconfig`
-- Repo root deploy script: `../deploy.sh`
+## Deploy script behavior
+- Located at repo root: `deploy.sh`
+- Builds from `gith-pgs-client/`, copies dist/, switches to gh-pages branch, replaces files, commits, pushes, switches back to main
+- Requires **clean working tree** before switching branches — commit first
+- `git checkout main` at the end restores files from git — uncommitted deletions are undone
