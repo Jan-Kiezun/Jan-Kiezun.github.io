@@ -8,8 +8,23 @@ posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
 <BlogLayout title="Home" description="Personal blog of Jan Kiezun">
   <section class="intro">
-    <h1>Jan Kiezun</h1>
-    <p>Personal blog about [your interests here]. Writings on software, mathematics, and ideas.</p>
+    <h1>Jan Kieżun</h1>
+    <p class="subtitle">Data Engineer · Poland</p>
+    <p>CS graduate writing about data engineering, machine learning, and signal processing.</p>
+    <ul class="chips">
+      <li>Python</li>
+      <li>SQL</li>
+      <li>PySpark</li>
+      <li>Airflow</li>
+      <li>Data Engineering</li>
+      <li>Machine Learning</li>
+      <li>Signal Processing</li>
+      <li>GCP</li>
+    </ul>
+    <div class="links">
+      <a href="https://github.com/Jan-Kiezun">GitHub</a>
+      <a href="https://www.linkedin.com/in/jan-kiezun/">LinkedIn</a>
+    </div>
   </section>
 
   <section class="posts">
@@ -59,9 +74,47 @@ posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
     margin-bottom: 0.5rem;
   }
 
+  section.intro p.subtitle {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--color-accent);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+
   section.intro p {
     color: var(--color-text-secondary);
     font-size: 1.05rem;
+  }
+
+  ul.chips {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0 1.25rem;
+  }
+
+  ul.chips li {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    background: var(--color-code-bg);
+    padding: 0.25rem 0.65rem;
+    border-radius: 4px;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  .links {
+    display: flex;
+    gap: 1.25rem;
+  }
+
+  .links a {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 500;
   }
 
   section.posts h2 {
