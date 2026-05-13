@@ -15,13 +15,13 @@ const { title, description } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description || title} />
-    <title>{title} — Jan Kiezun</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title === "Home" ? "Jan Kiezun Blog" : `${title} — Jan Kiezun`}</title>
+    <link rel="icon" type="image/png" href="/blog-logo.png" />
   </head>
   <body>
     <header>
       <nav>
-        <a href="/">Jan Kiezun</a>
+        <a href="/" class="site-title"><img src="/blog-logo.png" alt="" class="logo" width="24" height="24" /> Jan Kiezun</a>
       </nav>
     </header>
     <main>
@@ -48,6 +48,13 @@ const { title, description } = Astro.props;
     letter-spacing: 0.08em;
     color: var(--color-accent);
     text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  header nav a img.logo {
+    border-radius: 50%;
   }
 
   header nav a:hover {
