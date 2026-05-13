@@ -21,7 +21,8 @@ const { title, description } = Astro.props;
   <body>
     <header>
       <nav>
-        <a href="/" class="site-title"><img src="/blog-logo.png" alt="" class="logo" width="24" height="24" /> Jan Kiezun</a>
+        <a href="/">Jan Kiezun</a>
+        <img src="/blog-logo.png" alt="" class="logo" width="48" height="48" />
       </nav>
     </header>
     <main>
@@ -40,6 +41,12 @@ const { title, description } = Astro.props;
     padding: 0 1.5rem;
   }
 
+  header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   header nav a {
     font-family: var(--font-sans);
     font-size: 0.9rem;
@@ -48,12 +55,9 @@ const { title, description } = Astro.props;
     letter-spacing: 0.08em;
     color: var(--color-accent);
     text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
   }
 
-  header nav a img.logo {
+  header nav img.logo {
     border-radius: 50%;
   }
 
