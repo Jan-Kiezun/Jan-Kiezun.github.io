@@ -1,51 +1,58 @@
-# Astro Starter Kit: Minimal
+# Jan Kieżun — Personal Blog
+
+Personal blog built with [Astro](https://astro.build) and deployed to [GitHub Pages](https://jan-kiezun.github.io).
+
+## Quick start
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install        # dependencies (ephemeral — re-run if missing)
+npm run dev        # local dev server at localhost:4321
+npm run build      # production build to dist/
+bash ../deploy.sh  # build + deploy to gh-pages
 ```
 
-<!-- ASTRO:REMOVE:START -->
+## Adding a blog post
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+1. Create a `.md` file in `src/content/blog/` with frontmatter:
+   ```yaml
+   ---
+   title: Your Title
+   description: Short summary
+   date: YYYY-MM-DD
+   tags: [tag1, tag2]
+   draft: false
+   ---
+   ```
+2. Set `draft: true` to hide from the listing while working.
+3. Run `npm run build` to verify.
+4. Commit, then `bash ../deploy.sh` to publish.
 
-<!-- ASTRO:REMOVE:END -->
+Or use the `add-blog-post` skill in OpenCode by providing a path to a `.md` file.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Project structure
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
+```
+gith-pgs-client/
+├── public/                  # static assets (favicon, logo)
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── content/blog/        # blog posts as .md files
+│   ├── layouts/             # base HTML shell (nav, footer, SEO)
+│   ├── pages/               # routes (index, blog/[slug])
+│   └── styles/              # global CSS
+├── astro.config.mjs
+├── package.json
+└── deploy.sh                # (in repo root)
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Deploy
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+The deploy script (`../deploy.sh` from `gith-pgs-client/`):
+1. Builds the site
+2. Switches to the `gh-pages` branch
+3. Replaces all files with the built output
+4. Commits and pushes to `origin/gh-pages`
+5. Switches back to `main`
 
-Any static assets, like images, can be placed in the `public/` directory.
+---
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+*Powered by [Astro](https://astro.build).*
