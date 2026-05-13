@@ -15,21 +15,20 @@ const { title, description } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description || title} />
-    <title>{title === "Home" ? "Jan Kiezun Blog" : `${title} — Jan Kiezun`}</title>
+    <title>{title === "Home" ? "Jan Kieżun Blog" : `${title} — Jan Kieżun`}</title>
     <link rel="icon" type="image/png" href="/blog-logo.png" />
   </head>
   <body>
     <header>
       <nav>
-        <a href="/">Jan Kiezun</a>
-        <img src="/blog-logo.png" alt="" class="logo" width="48" height="48" />
+        <a href="/">Jan Kieżun</a>
       </nav>
     </header>
     <main>
       <slot />
     </main>
     <footer>
-      <p>&copy; {new Date().getFullYear()} Jan Kiezun</p>
+      <p>&copy; {new Date().getFullYear()} Jan Kieżun</p>
     </footer>
   </body>
 </html>
@@ -41,12 +40,6 @@ const { title, description } = Astro.props;
     padding: 0 1.5rem;
   }
 
-  header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
   header nav a {
     font-family: var(--font-sans);
     font-size: 0.9rem;
@@ -55,10 +48,6 @@ const { title, description } = Astro.props;
     letter-spacing: 0.08em;
     color: var(--color-accent);
     text-decoration: none;
-  }
-
-  header nav img.logo {
-    border-radius: 50%;
   }
 
   header nav a:hover {

@@ -6,7 +6,7 @@ const posts = await getCollection('blog', ({ data }) => !data.draft);
 posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<BlogLayout title="Home" description="Personal blog of Jan Kiezun">
+<BlogLayout title="Home" description="Personal blog of Jan Kieżun">
   <section class="intro">
     <h1>Jan Kieżun</h1>
     <p class="subtitle">Data Engineer · Poland</p>

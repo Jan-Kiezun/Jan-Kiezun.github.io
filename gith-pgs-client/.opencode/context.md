@@ -27,9 +27,9 @@
 - `public/` — static assets served at root (e.g. `/blog-logo.png`)
 
 ## Layout details
-- Nav in layout: "Jan Kiezun" on left, logo image (48x48) on right, flexbox with space-between
+- Nav in layout: "Jan Kieżun" link, no logo in navbar
 - Favicon points to `/blog-logo.png`
-- Tab title logic: `title === "Home"` → "Jan Kiezun Blog", otherwise `"{title} — Jan Kiezun"`
+- Tab title logic: `title === "Home"` → "Jan Kieżun Blog", otherwise `"{title} — Jan Kieżun"`
 
 ## Author
 - Jan Kieżun · Data Engineer · Poland

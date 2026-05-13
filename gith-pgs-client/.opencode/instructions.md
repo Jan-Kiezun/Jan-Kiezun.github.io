@@ -29,5 +29,5 @@
 
 ## Layout
 - `src/layouts/BlogLayout.astro` controls the base HTML shell: `<title>`, favicon, nav, footer
-- Nav has "Jan Kiezun" link on the left, logo on the right
+- Nav has a "Jan Kieżun" home link, no logo in navbar (logo only appears as favicon)
 - To edit the navbar logo or its position, edit the `<nav>` in `BlogLayout.astro`
