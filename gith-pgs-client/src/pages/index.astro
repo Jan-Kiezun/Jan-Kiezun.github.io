@@ -1,0 +1,134 @@
+---
+import BlogLayout from '../layouts/BlogLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog', ({ data }) => !data.draft);
+posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BlogLayout title="Home" description="Personal blog of Jan Kiezun">
+  <section class="intro">
+    <h1>Jan Kiezun</h1>
+    <p>Personal blog about [your interests here]. Writings on software, mathematics, and ideas.</p>
+  </section>
+
+  <section class="posts">
+    <h2>Posts</h2>
+    {
+      posts.length > 0 ? (
+        <ul class="post-list">
+          {
+            posts.map((post) => (
+              <li>
+                <article>
+                  <time datetime={post.data.date.toISOString().split('T')[0]}>
+                    {post.data.date.toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </time>
+                  <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+                  <p class="description">{post.data.description}</p>
+                  {
+                    post.data.tags.length > 0 && (
+                      <ul class="tags">
+                        {post.data.tags.map((tag) => <li>{tag}</li>)}
+                      </ul>
+                    )
+                  }
+                </article>
+              </li>
+            ))
+          }
+        </ul>
+      ) : (
+        <p class="empty">No posts yet. Check back soon.</p>
+      )
+    }
+  </section>
+</BlogLayout>
+
+<style is:global>
+  section.intro {
+    margin-bottom: 3rem;
+  }
+
+  section.intro h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  section.intro p {
+    color: var(--color-text-secondary);
+    font-size: 1.05rem;
+  }
+
+  section.posts h2 {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  ul.post-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul.post-list li {
+    margin-bottom: 1.75rem;
+  }
+
+  ul.post-list time {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.2rem;
+  }
+
+  ul.post-list a {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  ul.post-list a:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  p.description {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    margin: 0.25rem 0 0;
+  }
+
+  ul.tags {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.4rem;
+  }
+
+  ul.tags li {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    background: var(--color-code-bg);
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  p.empty {
+    color: var(--color-text-secondary);
+    font-style: italic;
+  }
+</style>

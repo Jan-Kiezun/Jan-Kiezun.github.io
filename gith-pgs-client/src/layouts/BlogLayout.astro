@@ -1,0 +1,73 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description || title} />
+    <title>{title} — Jan Kiezun</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/">Jan Kiezun</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <p>&copy; {new Date().getFullYear()} Jan Kiezun</p>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  header {
+    max-width: var(--max-width);
+    margin: 3rem auto 0;
+    padding: 0 1.5rem;
+  }
+
+  header nav a {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  header nav a:hover {
+    text-decoration: underline;
+  }
+
+  main {
+    max-width: var(--max-width);
+    margin: 2.5rem auto 4rem;
+    padding: 0 1.5rem;
+  }
+
+  footer {
+    max-width: var(--max-width);
+    margin: 0 auto 3rem;
+    padding: 0 1.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    border-top: 1px solid var(--color-border);
+    padding-top: 1.5rem;
+  }
+</style>
