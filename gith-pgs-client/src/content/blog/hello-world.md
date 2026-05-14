@@ -7,7 +7,7 @@ tags: [meta, writing]
 
 This is the first post. The blog is built with [Astro](https://astro.build), using a minimal, typography-first design.
 
-## Why another blog?
+## Why another blog??
 
 A space to collect thoughts, notes, and ideas. Clean and simple.
 
